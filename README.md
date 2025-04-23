@@ -1,26 +1,40 @@
-# 🚗 EV Simulink Model + 📚 LLM-powered PDF QA App
+# PDF Question Answering App with LLM Integration
 
-This repository contains two projects:
+This project is a Flask-based web application that allows users to upload PDF documents and ask questions based on the content. It uses LangChain, FAISS for vector storage, and a locally hosted LLaMA-based language model for accurate, document-aware responses.
 
-1. **Electric Vehicle Simulink Model (MATLAB)**
-2. **Flask-based LLM PDF QA System (Python)**
+## Features
+
+-  Upload a PDF and extract its text.
+-  Chunk and embed the text using `sentence-transformers`.
+-  Store embeddings in a FAISS vector database.
+-  Query the document using a conversational retrieval chain with LLaMA.cpp.
+-  Ask questions and receive precise, context-based answers.
 
 ---
 
-## 🚗 1. EV Simulink Model (MATLAB)
+## 🛠 Tech Stack
 
-### Overview
-Simulates an Electric Vehicle using MATLAB/Simulink with initialization from a script file.
+- **Flask** – Web server
+- **LangChain** – LLM chains and memory
+- **FAISS** – Vector database
+- **LLaMA.cpp** – Local inference of a quantized LLM
+- **PyPDF2** – PDF parsing
+- **sentence-transformers** – Embedding generation
+- **HuggingFace Embeddings** – For semantic search
+- **CORS** – Cross-origin requests handling
 
-### Files
-- `ev_new.slx` - Simulink model of the EV.
-- `init_ev_model.m` - Script to initialize simulation parameters.
+---
 
-### How to Run (MATLAB or MATLAB Online)
-1. Rename `init_ev_model.m.txt` to `init_ev_model.m`.
-2. Upload both files to MATLAB or [MATLAB Online](https://matlab.mathworks.com).
-3. In the MATLAB command window, run:
-   ```matlab
-   init_ev_model
-   open_system('ev_new')
-   sim('ev_new')
+##  Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/pdf-qa-app.git
+cd pdf-qa-app
+
+# Create and activate virtual environment (optional but recommended)
+python3 -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+
+# Install dependencies
+pip install -r requirements.txt
